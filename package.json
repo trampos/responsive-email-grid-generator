@@ -11,7 +11,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember test",
-    "deploy-gh": "./deploy-gh.sh"
+    "deploy-gh": "deploy-gh.sh"
   },
   "repository": "",
   "engines": {
