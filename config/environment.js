@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'responsive-email-grid-generator',
     environment: environment,
-    baseURL: 'responsive-email-grid-generator',
+    baseURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -40,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/responsive-email-grid-generator'
   }
 
   return ENV;
