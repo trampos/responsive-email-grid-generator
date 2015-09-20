@@ -32,17 +32,20 @@ export default Ember.View.extend({
 	}.on('didInsertElement').observes('controller.breakPoint', 'controller.mediaQuerySupport'),
 
 	prettifyCode: function(){
-		var code = Ember.$('#main');
+		Ember.run.scheduleOnce('afterRender', this, function(){
+			var code = Ember.$('#main');
 
-		// CLEAN CODE
-		code.find('.ember-view').removeClass('ember-view');
-		code.find('[id]').removeAttr('id');
+			// CLEAN CODE
+			code.find('.ember-view').removeClass('ember-view');
+			code.find('[id]').removeAttr('id');
 
-		var beautify = JsBeautify.html_beautify;
-		var prettify = Ember.$('<pre class="prettyprint"></pre>').text(beautify(code.html(), { indent_size: 2 }));
+			var beautify = JsBeautify.html_beautify;
+			var prettify = Ember.$('<pre class="prettyprint"></pre>').text(beautify(code.html(), { indent_size: 2 }));
+			
+			console.log("PRETTIFYING", prettify)
+			Ember.$('#code').empty().append(prettify);
+			prettyPrint();
+		});
 		
-		console.log("PRETTIFYING", prettify)
-		Ember.$('#code').empty().append(prettify);
-		prettyPrint();
 	}.observes('controller.maxWidth', 'controller.breakPoint', 'controller.gap', 'controller.rows.[]')
 });
