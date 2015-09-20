@@ -14,7 +14,7 @@ export default Ember.Mixin.create({
 
 		label.html(this.get('hoverLabel'));
 		label.css({ 
-			backgroundColor: 	'#00f',
+			backgroundColor: 	'#BFD5EA',
 			color: 				'#fff',
 			fontSize: 			'10px',
 			position: 			'absolute',
@@ -26,7 +26,7 @@ export default Ember.Mixin.create({
 		rect.append(label);
 
 		rect.css({ 
-			border:'1px solid #00f',
+			border:'1px solid #BFD5EA',
 			position:'fixed', 
 			pointerEvents: 'none',
 			bottom: bounds.bottom, 

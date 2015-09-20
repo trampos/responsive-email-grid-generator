@@ -55,7 +55,7 @@
 
         <div class="row">
             <div class="col-xs-4">
-                <label for="input-@padding-base-vertical">@width</label>
+                <label for="input-@padding-base-vertical">@max-width</label>
                 {{input value=maxWidth class="form-control"}}
             </div>
             <div class="col-xs-4">
@@ -66,22 +66,22 @@
                 <label for="input-@padding-large-vertical">@gap-size: {{gap}}</label>
                 {{input type="range" value=gap min=0 max=100 step=2}}
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="form-group">
-                    MEDIA QUERY SUPPORT <button {{action "toggleMediaQuerySupport"}}>{{mediaQuerySupport}}</button>
-                </div>
-
-                <div id="main">
-                    {{component "main-grid" maxWidth=maxWidth rows=rows gap=gap}}
-                </div>
-
-                <button {{action "addRow"}}>ADD ROWS</button>
+            <div class="form-group">
+                MEDIA QUERY SUPPORT <button {{action "toggleMediaQuerySupport"}}>{{mediaQuerySupport}}</button>
             </div>
         </div>
     </div>
+</section>
+
+<section class="stage-section">
+
+    <div id="main">
+        {{component "main-grid" maxWidth=maxWidth rows=rows gap=gap}}
+    </div>
+
+    {{component "grid-tools" target="selectedItem"}}
+    
+    <button {{action "addRow"}}>ADD ROWS</button>
 </section>
 
 <!-- Code Section -->
