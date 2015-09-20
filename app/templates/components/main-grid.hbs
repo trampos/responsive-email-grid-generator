@@ -1,0 +1,18 @@
+<tr>
+	<td style="padding:{{concat cellPadding 'px'}}">
+		<table class="inner" width="100%">
+		{{#each rows as |row|}}
+			<tr>
+				<td>
+					{{#if row.responsive}}
+						{{component "nested-responsive-grid" row=row cols=row.cols gap=gap delete="removeRow"}}
+					{{else}}
+						{{component "nested-grid" row=row cols=row.cols gap=gap delete="removeRow"}}
+					{{/if}}
+				</td>
+			</tr>
+		{{/each}}
+		</table>
+	</td>
+</tr>
+
