@@ -5,15 +5,22 @@ export default Ember.Controller.extend({
 	maxWidth: '600',
 	breakPoint: '600',
 	gap: 10,
-	rows: Ember.A([ Row.create({ cols: [0,1], responsive: true }) ]),
+	rows: Ember.A([ Row.create({ cols: 1, responsive: true }) ]),
 	mediaQuerySupport: 'on',
 
 	actions: {
 		addRow: function(){
-			this.get('rows').pushObject( Row.create({
-				cols: [0,1], 
-				responsive: false
-			}));
+			var newRow = Row.create({
+				cols: 1, 
+				responsive: true
+			});
+
+			this.get('rows').pushObject( newRow );
+			this.set('selectedItem', newRow);
+		},
+
+		removeRow: function(row){
+			this.get('rows').removeObject(row);
 		},
 		
 		toggleMediaQuerySupport: function() {
@@ -21,7 +28,7 @@ export default Ember.Controller.extend({
 		},
 		
 		selectItem: function(item){
-			
+			this.set('selectedItem', item);
 		}
 	}
 });

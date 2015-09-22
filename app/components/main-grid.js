@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	tagName:"table",
 	classNames: ["main-grid"],
-	attributeBindings: ['style:style', 'width', 'cellPadding:cellpadding'],
+	cellspacing: 0,
+	attributeBindings: ['style:style', 'width', 'cellspacing', 'cellPadding:cellpadding'],
 	width:"100%",
 
 	style: function(){
@@ -14,5 +15,11 @@ export default Ember.Component.extend({
 
  	cellPadding: function(){
 		return this.get('gap') / 2;
-	}.property('gap')
+	}.property('gap'),
+
+	actions: {
+		selectRow: function(row){
+			this.sendAction("selectItem", row);
+		}
+	}
 });

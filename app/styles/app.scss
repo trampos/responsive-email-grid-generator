@@ -78,16 +78,24 @@ of those sections to manage the look and feel of the site. */
 
     .container { max-width:800px; }
     .grid-tools { 
-			width:200px;
-			background-color:#fff; 
-			padding:10px; 
-			display:inline-block; 
-			border-radius:3px; 
+		width:200px;
+		background-color:#fff; 
+		padding:10px; 
+		display:inline-block; 
+		border-radius:3px; 
 	    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
 	    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
 	    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
-		}
-		.add-row-button { margin:auto; margin-top:20px; display:block; }
+	}
+	.add-row-button { margin:auto; margin-top:20px; display:block; }
+    .media-query-opt { 
+        font-size:.9em; 
+        font-weight:bold; 
+        color:#FFF; 
+        position:absolute; 
+        right:10px; 
+        bottom:10px; 
+    }
 }
 
 table.main-grid {
@@ -104,6 +112,35 @@ table.main-grid {
         }
     }
 }
+
+/* NICE RULER */
+.nice-ruler {
+    position:relative;
+    height:20px;
+    border-left:1px solid #F0B64A;
+    border-right:1px solid #F0B64A;
+    
+    .ruler-line-left {
+        position:absolute;
+        width:calc(50% - 50px);
+        left:0;
+    }
+
+    .ruler-line-right {
+        position:absolute;
+        width:calc(50% - 50px);
+        right:0;
+    }
+
+    .ruler-value {
+
+    }
+
+    
+}
+
+
+
 
 /* prettify */
 

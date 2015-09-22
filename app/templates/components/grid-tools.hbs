@@ -2,14 +2,17 @@
 <div class="row">
     <div class="col-xs-12">
       <label for="input-@padding-base-vertical">@cols</label> 
-			{{input value=cols class="input-label" size=3}}
-      {{input type="range" value=cols min=1 max=10 step=1}}
+		{{input value=target.cols class="input-label" size=3}}
+      	{{input type="range" value=target.cols min=1 max=10 step=1}}
     </div>
-		<div class="col-xs-12">
-			<div class="checkbox">
-		    <label>
-		     	{{input type="checkbox" checked=responsive}} Responsive
-		    </label>
-		  </div>
-		</div>
+	<div class="col-xs-12">
+		<div class="checkbox">
+	    <label>
+	     	{{input type="checkbox" checked=target.responsive}} Responsive
+	    </label>
+	  </div>
+	</div>
+	<div class="col-xs-12">
+	  <button {{action "delete"}}>REMOVE</button>
+	</div>
 </div>

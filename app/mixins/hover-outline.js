@@ -12,7 +12,7 @@ export default Ember.Mixin.create({
 		var label = Ember.$('<div></div>');
 		var bounds = this.$().get(0).getBoundingClientRect();
 
-		label.html(this.get('hoverLabel'));
+		label.html(this.get('name'));
 		label.css({ 
 			backgroundColor: 	'#BFD5EA',
 			color: 				'#fff',

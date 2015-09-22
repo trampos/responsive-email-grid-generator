@@ -3,7 +3,6 @@ import JsBeautify from 'npm:js-beautify';
 
 export default Ember.View.extend({
 	writeMediaQuery: function(){
-		console.log(this.get('controller.mediaQuerySupport'), $("#media-query").size())
 		if(this.get('controller.mediaQuerySupport') == 'on'){
 			if($("#media-query").size() > 0) {
 				Ember.$("#media-query").replaceWith(this.get('mediaQuery').clone());
@@ -57,5 +56,5 @@ export default Ember.View.extend({
 			prettyPrint();
 		});
 		
-	}.on('didInsertElement').observes('controller.maxWidth', 'controller.gap', 'controller.rows.[]', 'mediaQuery')
+	}.on('didInsertElement').observes('controller.maxWidth', 'controller.gap', 'controller.rows.@each.cols', 'mediaQuery')
 });
