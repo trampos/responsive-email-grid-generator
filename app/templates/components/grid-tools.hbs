@@ -1,1 +1,15 @@
-{{yield}} GRID TOOLS
+<h4>ROW TOOLS</h4>
+<div class="row">
+    <div class="col-xs-12">
+      <label for="input-@padding-base-vertical">@cols</label> 
+			{{input value=cols class="input-label" size=3}}
+      {{input type="range" value=cols min=1 max=10 step=1}}
+    </div>
+		<div class="col-xs-12">
+			<div class="checkbox">
+		    <label>
+		     	{{input type="checkbox" checked=responsive}} Responsive
+		    </label>
+		  </div>
+		</div>
+</div>

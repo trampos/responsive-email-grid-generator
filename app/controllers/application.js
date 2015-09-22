@@ -15,8 +15,13 @@ export default Ember.Controller.extend({
 				responsive: false
 			}));
 		},
+		
 		toggleMediaQuerySupport: function() {
 			this.set('mediaQuerySupport', this.get('mediaQuerySupport') == 'on' ? 'off' : 'on');
+		},
+		
+		selectItem: function(item){
+			
 		}
 	}
 });

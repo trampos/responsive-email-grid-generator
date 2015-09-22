@@ -22,6 +22,8 @@ html {
     }
 }
 
+.input-label { float:right; margin-top:-5px; direction:rtl; }
+
 /* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
 The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
 of those sections to manage the look and feel of the site. */
@@ -57,7 +59,8 @@ of those sections to manage the look and feel of the site. */
 
     height: 100%;
     padding: 100px 0;
-
+		position:relative;
+		
     background: -webkit-linear-gradient(90deg, $stripe_b 0, $stripe_b 1%, $stripe_b 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 100%), -webkit-linear-gradient(0deg, $stripe_b 1px, rgba(0,0,0,0) 1px), -webkit-linear-gradient(90deg, rgba(255,255,255,0.1) 1px, rgba(0,0,0,0) 1px), -webkit-linear-gradient(0deg, rgba(255,255,255,0.1) 1px, rgba(0,0,0,0) 1px), #535C78;
     background: -moz-linear-gradient(0deg, $stripe_b 0, $stripe_b 1%, $stripe_b 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 100%), -moz-linear-gradient(90deg, $stripe_b 1px, rgba(0,0,0,0) 1px), -moz-linear-gradient(0deg, rgba(255,255,255,0.1) 1px, rgba(0,0,0,0) 1px), -moz-linear-gradient(90deg, rgba(255,255,255,0.1) 1px, rgba(0,0,0,0) 1px), #535C78;
     background: linear-gradient(0deg, $stripe_b 0, $stripe_b 1%, $stripe_b 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 100%), linear-gradient(90deg, $stripe_b 1px, rgba(0,0,0,0) 1px), linear-gradient(0deg, rgba(255,255,255,0.1) 1px, rgba(0,0,0,0) 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, rgba(0,0,0,0) 1px), #535C78;
@@ -74,7 +77,17 @@ of those sections to manage the look and feel of the site. */
     box-shadow: inset 0px 59px 12px -52px rgba(0,0,0,0.18);
 
     .container { max-width:800px; }
-    .grid-tools { background-color:#fff; padding:20px; display:inline-block; }
+    .grid-tools { 
+			width:200px;
+			background-color:#fff; 
+			padding:10px; 
+			display:inline-block; 
+			border-radius:3px; 
+	    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
+	    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
+	    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
+		}
+		.add-row-button { margin:auto; margin-top:20px; display:block; }
 }
 
 table.main-grid {

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 	classNames:['grid-tools'],
 	
 	setup: function(){
-		console.log(this.$().parent())
-		Draggable.create(this.$(), { type:"x,y", bounds:this.$().parent(), throwProps:true});
+		this.$().css({ position: 'absolute', top:20, left:20 });
+		Draggable.create(this.$(), { type:"top,left", bounds:this.$().parent(), throwProps:true});
 	}.on('didInsertElement')
 });
