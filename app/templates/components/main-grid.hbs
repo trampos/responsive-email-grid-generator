@@ -1,13 +1,13 @@
 <tr>
 	<td style="padding:{{concat cellPadding 'px'}}">
-		<table class="inner" cellspacing="0" cellpadding="0" width="100%">
+		<table class="inner" width="100%">
 		{{#each rows as |row index|}}
 			<tr>
 				<td>
 					{{#if row.responsive}}
-						{{component "nested-responsive-grid" row=row name=(concat "row" index) gap=gap select="selectRow"}}
+						{{component "nested-responsive-grid" row=row name=(concat "row" index) gap=gap select="selectRow" delete="removeRow"}}
 					{{else}}
-						{{component "nested-grid" row=row name=(concat "row" index) gap=gap select="selectRow"}}
+						{{component "nested-grid" row=row name=(concat "row" index) gap=gap select="selectRow" delete="removeRow"}}
 					{{/if}}
 				</td>
 			</tr>

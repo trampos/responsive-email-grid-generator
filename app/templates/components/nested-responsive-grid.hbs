@@ -1,9 +1,12 @@
-<tbody>
-	{{#each colsArray as |col|}}
-	<tr>
-		<td style="padding:{{concat cellPadding 'px'}}">
-			<div class="col"><!-- content here --></div>
-		</td>
-	</tr>
-	{{/each}}
-</tbody>
+{{#each colsArray as |col|}}
+	<!-- TESTE {{{cellPadding}}} -->
+	<table cellspacing="0" cellpadding="{{cellPadding}}">
+		<tbody>
+			<tr>
+				<td style="padding:{{concat cellPadding 'px'}}">
+					<div class="col"><!-- content here --></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+{{/each}}

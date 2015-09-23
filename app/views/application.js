@@ -15,7 +15,7 @@ export default Ember.View.extend({
 	}.on('didInsertElement').observes('controller.mediaQuerySupport', 'mediaQuery'),
 
 	mediaQuery: function(){
-		var css = `@media screen and (min-width: ${this.get('controller.breakPoint')}px) { 
+		var css = `@media screen and (min-width: ${this.get('controller.breakpoint')}px) { 
 			.nested-responsive > tbody { display:table-row; }
 			.nested-responsive > tbody > tr { display:table-cell; }
 			.nested-responsive > tbody > tr > td { display:block; }
@@ -32,14 +32,24 @@ export default Ember.View.extend({
 		}
 
 		return $(style);
-	}.property('controller.breakPoint'),
+	}.property('controller.breakpoint'),
 
 	prettifyCode: function(){
 		Ember.run.scheduleOnce('afterRender', this, function(){
-			var html = Ember.$('<html></html>');
+			var doctype = ` <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`;
+			var html = Ember.$('<html></html>').attr('xmlns', 'http://www.w3.org/1999/xhtml');
 			var head = Ember.$('<head></head>');
 			var body = Ember.$('<body></body>');
 			var code = Ember.$('#main').clone();
+
+			head.html(`<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			    <!--[if !mso]><!-->
+			        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			    <!--<![endif]-->
+			    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title></title>
+			    \n<!--[if (gte mso 9)|(IE)]>\n  <style type="text/css">\n    table {border-collapse: collapse;}\n  </style>\n  <![endif]-->\n
+			`);
 
 			head.append(this.get('mediaQuery').clone());
 			body.append(code);
@@ -49,10 +59,11 @@ export default Ember.View.extend({
 			html.find('.ember-view').removeClass('ember-view');
 			html.find('[id]').removeAttr('id');
 
-			var beautify = JsBeautify.html_beautify;
-			var prettified = Ember.$('<pre class="prettyprint lang-html linenums"></pre>').text(beautify(html[0].outerHTML, { indent_size: 2 }));
+			var beautify 	= JsBeautify.html_beautify;
+			var prettified 	= beautify(`${doctype}\n${html[0].outerHTML}`, { indent_size: 2 })
+			var pre 		= Ember.$('<pre class="prettyprint lang-html linenums"></pre>').text(prettified);
 
-			Ember.$('#code').empty().append(prettified);
+			Ember.$('#code').empty().append(pre);
 			prettyPrint();
 		});
 		

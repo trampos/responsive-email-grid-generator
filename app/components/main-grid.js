@@ -1,6 +1,14 @@
 import Ember from 'ember';
+import TargetApplicationActionsMixin from 'responsive-email-grid-generator/mixins/target-application-actions';
 
-export default Ember.Component.extend({
+/*
+ * RESPONSABILIDADES:
+ *
+ * - Tamanho do GRID
+ * - Talvez cor de fundo
+*/
+
+export default Ember.Component.extend(TargetApplicationActionsMixin, {
 	tagName:"table",
 	classNames: ["main-grid"],
 	cellspacing: 0,
@@ -18,8 +26,8 @@ export default Ember.Component.extend({
 	}.property('gap'),
 
 	actions: {
-		selectRow: function(row){
-			this.sendAction("selectItem", row);
+		selectItem: function(row){
+			console.log("PORRA?")
 		}
 	}
 });

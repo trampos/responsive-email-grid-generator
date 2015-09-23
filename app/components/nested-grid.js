@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import HoverEffectMixin from 'responsive-email-grid-generator/mixins/hover-outline';
+import TargetApplicationActionsMixin from 'responsive-email-grid-generator/mixins/target-application-actions';
 
-export default Ember.Component.extend(HoverEffectMixin, {
+export default Ember.Component.extend(HoverEffectMixin, TargetApplicationActionsMixin, {
 	tagName: "table",
 	classNames: "nested",
 	cellspacing: 0,

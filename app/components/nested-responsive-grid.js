@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import HoverEffectMixin from 'responsive-email-grid-generator/mixins/hover-outline';
+import TargetApplicationActionsMixin from 'responsive-email-grid-generator/mixins/target-application-actions';
 
-export default Ember.Component.extend(HoverEffectMixin, {
-	hoverLabel: "RESPONSIVE COLUMNS",
+export default Ember.Component.extend(HoverEffectMixin, TargetApplicationActionsMixin, {
 	tagName: "table",
 	classNames: "nested-responsive",
 	cellspacing: 0,
@@ -18,7 +18,8 @@ export default Ember.Component.extend(HoverEffectMixin, {
 	}.property('row.cols'),
 
 	click: function(){
-		this.sendAction("select", this.get('row'));
+		console.log("TENTANDO SELECT")
+		this.send("selectItem", this.get('row'));
 	},
 
  	cellPadding: function(){

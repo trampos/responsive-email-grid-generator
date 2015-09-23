@@ -3,9 +3,9 @@ import Row from 'responsive-email-grid-generator/models/row';
 
 export default Ember.Controller.extend({
 	maxWidth: '600',
-	breakPoint: '600',
+	breakpoint: '600',
 	gap: 10,
-	rows: Ember.A([ Row.create({ cols: 1, responsive: true }) ]),
+	rows: Ember.A([]),
 	mediaQuerySupport: 'on',
 
 	actions: {
@@ -28,6 +28,7 @@ export default Ember.Controller.extend({
 		},
 		
 		selectItem: function(item){
+			console.log("SELECT")
 			this.set('selectedItem', item);
 		}
 	}
